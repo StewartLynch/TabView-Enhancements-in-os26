@@ -19,10 +19,34 @@ import SwiftUI
 
 struct StartTab: View {
     var body: some View {
-        Text("Create TabView here")
+        TabView {
+            Tab("People List", systemImage: "person.2.fill") {
+                PeopleListView()
+            }
+            Tab("Second", systemImage: "2.circle") {
+                Second_Tab()
+            }
+            Tab("Third", systemImage: "3.circle") {
+                Third_Tab()
+            }
+//            Tab("Fourth", systemImage: "4.circle") {
+//               Text("Hello 4")
+//            }
+//            Tab("Fifth", systemImage: "5.circle") {
+//               Text("Hello 5")
+//            }
+//            Tab("Sixth", systemImage: "6.circle") {
+//               Text("Hello 6")
+//            }
+//            Tab("Seventh", systemImage: "7.circle") {
+//               Text("Hello 7")
+//            }
+        }
+        .tabViewStyle(.sidebarAdaptable)
     }
 }
 
 #Preview {
     StartTab()
+        .environment(DataManager())
 }
