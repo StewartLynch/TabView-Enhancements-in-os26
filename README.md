@@ -1,6 +1,6 @@
 # Tabview Enhancements in iOS 26 and iPadOS 26
 
-![AppIcon128](Images/AppIcon128.png) This is the starter project for the video on Tabview Enhancements for iOS and iPadOS 26
+![AppIcon128](Images/AppIcon128.png) This is the completed source code for the video on Tabview Enhancements for iOS and iPadOS 26
 
 Release Date: September 21, 2025
 
