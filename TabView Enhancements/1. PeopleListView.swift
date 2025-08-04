@@ -21,13 +21,10 @@ struct PeopleListView: View {
     @Environment(DataManager.self) var manager
     var body: some View {
         NavigationStack {
-            List(manager.filteredList.sorted(), id: \.self) { person in
+            List(manager.people.sorted(), id: \.self) { person in
                 Text(person)
             }
             .listStyle(.plain)
-            .onAppear {
-                manager.filter = ""
-            }
             .navigationTitle("People List")
         }
     }
