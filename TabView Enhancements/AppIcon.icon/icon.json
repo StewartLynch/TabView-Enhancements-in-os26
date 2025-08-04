@@ -1,0 +1,93 @@
+{
+  "fill" : {
+    "automatic-gradient" : "srgb:0.70218,0.69769,0.97288,1.00000"
+  },
+  "groups" : [
+    {
+      "blur-material-specializations" : [
+        {
+          "appearance" : "light",
+          "value" : null
+        }
+      ],
+      "layers" : [
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "srgb:1.00000,1.00000,1.00000,1.00000"
+              }
+            }
+          ],
+          "glass" : true,
+          "image-name" : "4.circle.fill.png",
+          "name" : "4.circle.fill",
+          "position" : {
+            "scale" : 1.34,
+            "translation-in-points" : [
+              258.399840870956,
+              284.49647691062484
+            ]
+          }
+        }
+      ],
+      "position" : {
+        "scale" : 1,
+        "translation-in-points" : [
+          16.0859375,
+          -53.2890625
+        ]
+      },
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.56
+      },
+      "specular" : true,
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0
+      }
+    },
+    {
+      "blur-material" : null,
+      "layers" : [
+        {
+          "glass" : true,
+          "image-name" : "Tab2.png",
+          "name" : "Tab2",
+          "position" : {
+            "scale" : 2.69,
+            "translation-in-points" : [
+              1.109375,
+              -49.02734375
+            ]
+          }
+        }
+      ],
+      "position" : {
+        "scale" : 1,
+        "translation-in-points" : [
+          4.421875,
+          0.7265625
+        ]
+      },
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : "shared"
+  }
+}
