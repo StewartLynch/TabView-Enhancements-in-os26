@@ -19,13 +19,19 @@ import SwiftUI
 
 struct PeopleListView: View {
     @Environment(DataManager.self) var manager
+    @SceneStorage("selectedTab") var selectedTab = 0
     var body: some View {
+        @Bindable var manager = manager
         NavigationStack {
-            List(manager.people.sorted(), id: \.self) { person in
+            List(manager.filteredList.sorted(), id: \.self) { person in
                 Text(person)
+            }
+            .onAppear {
+                manager.filter = ""
             }
             .listStyle(.plain)
             .navigationTitle("People List")
+            .isSearchable(selectedTab: selectedTab, filter: $manager.filter)
         }
     }
     
@@ -34,4 +40,23 @@ struct PeopleListView: View {
 #Preview {
     PeopleListView()
         .environment(DataManager())
+}
+
+struct IsSearchable: ViewModifier {
+    let selectedTab: Int
+    @Binding var filter: String
+    func body(content: Content) -> some View {
+        if  selectedTab == 3{
+            content
+                .searchable(text: $filter)
+        } else {
+            content
+        }
+    }
+}
+
+extension View {
+    func isSearchable(selectedTab: Int, filter: Binding<String>) -> some View {
+        modifier(IsSearchable(selectedTab: selectedTab, filter: filter))
+    }
 }

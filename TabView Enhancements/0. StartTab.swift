@@ -18,16 +18,22 @@
 import SwiftUI
 
 struct StartTab: View {
+    @SceneStorage("selectedTab") var selectedTab = 0
     var body: some View {
-        TabView {
-            Tab("People List", systemImage: "person.2.fill") {
+        TabView(selection: $selectedTab) {
+            Tab("People List", systemImage: "person.2.fill", value: 0) {
                 PeopleListView()
             }
-            Tab("Second", systemImage: "2.circle") {
+            Tab("Second", systemImage: "2.circle", value: 1) {
                 Second_Tab()
             }
-            Tab("Third", systemImage: "3.circle") {
+            Tab("Third", systemImage: "3.circle", value: 2) {
                 Third_Tab()
+            }
+            if selectedTab == 0 || selectedTab == 3 {
+                Tab("Search", systemImage: "magnifyingglass", value: 3, role: .search) {
+                    PeopleListView()
+                }
             }
 //            Tab("Fourth", systemImage: "4.circle") {
 //               Text("Hello 4")

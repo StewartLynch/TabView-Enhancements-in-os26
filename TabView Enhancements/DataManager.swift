@@ -25,7 +25,11 @@ class DataManager {
         "Kevin", "Laura", "Michael", "Natalie", "Oscar",
         "Paula", "Quentin", "Rachel", "Steven", "Theresa"
     ]
+    var filter = ""
     
+    var filteredList: [String] {
+        people.filter { filter.isEmpty || $0.localizedCaseInsensitiveContains(filter)}
+    }
     func addPerson(_ person: String) {
         people.append(person)
         people = Array(Set(people)) // removes any duplicates
