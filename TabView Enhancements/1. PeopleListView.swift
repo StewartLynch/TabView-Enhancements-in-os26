@@ -20,6 +20,8 @@ import SwiftUI
 struct PeopleListView: View {
     @Environment(DataManager.self) var manager
     @SceneStorage("selectedTab") var selectedTab = 0
+    @State private var newPerson = ""
+    @FocusState private var isFocused: Bool
     var body: some View {
         @Bindable var manager = manager
         NavigationStack {
@@ -32,6 +34,41 @@ struct PeopleListView: View {
             .listStyle(.plain)
             .navigationTitle("People List")
             .isSearchable(selectedTab: selectedTab, filter: $manager.filter)
+            .safeAreaInset(edge: .bottom) {
+                if selectedTab == 0 {
+                    HStack {
+                        TextField("New Person", text: $newPerson)
+                            .focused($isFocused)
+                            .padding()
+                            .submitLabel(.done)
+                            .glassEffect()
+                            .onSubmit {
+                                addPerson()
+                            }
+                        Button {
+                            addPerson()
+                        } label: {
+                            Image(systemName: "checkmark")
+                                .font(.system(size: 36))
+                                .frame(width: 60, height: 60)
+                        }
+                        .buttonStyle(.plain)
+                        .glassEffect()
+                        .disabled(newPerson.isEmpty)
+                    }
+                    .padding()
+                }
+            }
+        }
+    }
+    
+    func addPerson() {
+        if !newPerson.isEmpty {
+            withAnimation {
+                manager.addPerson(newPerson)
+                newPerson = ""
+                isFocused = false
+            }
         }
     }
     

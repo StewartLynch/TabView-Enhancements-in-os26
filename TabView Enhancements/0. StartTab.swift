@@ -49,6 +49,12 @@ struct StartTab: View {
 //            }
         }
         .tabViewStyle(.sidebarAdaptable)
+        .tabBarMinimizeBehavior(.onScrollDown)
+        .tabViewBottomAccessory {
+                Text("\(Image(systemName: "swift")) Made with SwiftUI")
+                    .foregroundStyle(.orange)
+                    .padding()
+        }
     }
 }
 
